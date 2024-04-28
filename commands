@@ -1,0 +1,31 @@
+# Steps to install and deploy nexus
+
+# 1. Update apt package manager
+apt update
+apt install openjdk-8-jre-headless
+apt install net-tools
+
+# 2. Download nexus repository manager
+cd/opt
+wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+tar -zxvf nexus-3.67.1-01-unix.tar.gz
+
+# 3. Change folder name to nexus
+mv nexus-3.67.1-01 nexus
+
+# 4. Add user nexus and give permissions to nexus user
+adduser nexus
+chown -R nexus:nexus nexus
+chown -R nexus:nexus sonatype-work
+
+# 5. Edit nexus.rc file
+vim nexus/bin/nexus.rc
+run_as_user="nexus"
+
+# 6. Switch to nexus user and start the nexus
+su - nexus
+/opt/nexus/bin/nexus start
+
+# 7. Ensure nexus is running
+ps aux | grep nexus
+netstat -lnpt

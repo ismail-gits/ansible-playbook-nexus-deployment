@@ -1,0 +1,6 @@
+[nexus_server]
+172.235.4.210
+
+[nexus_server:vars]
+ansible_ssh_private_key_location=~/.ssh/id_rsa
+ansible_user=root
