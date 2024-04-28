@@ -1,4 +1,4 @@
-# Steps to install and deploy nexus
+# Steps to install and deploy nexus manually
 
 # 1. Update apt package manager
 apt update
